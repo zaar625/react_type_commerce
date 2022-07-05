@@ -1,0 +1,11 @@
+@use './variables' as *;
+// 배경화면 컬러
+.light {
+    --main-bg:var(--light-bg);
+    --txt-color:var(--light-txt);
+}
+
+.dark {
+    --main-bg:var(--dark-bg);
+    --txt-color:var(--dark-txt);
+}

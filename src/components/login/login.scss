@@ -1,0 +1,32 @@
+@use "../../scss/" as *;
+
+.login {
+    // margin-top: $header-height;
+    height: calc(75vh - $header-height);
+    padding: 0 2rem;
+    gap: 5rem;
+    display: flex;
+    margin-top: calc($header-height + 4rem);
+
+
+    &__form {
+        padding-right: 14rem;      
+        & form {
+            margin-bottom: 2px;
+            border-bottom: solid 2px;
+    
+            & input {
+                border: none;
+            }
+        }
+    }
+
+    &__form, &__info{
+        width: 30%;
+        @include flex(unset, unset);
+        gap: 1rem;
+        flex-direction: column;
+    }
+
+
+}

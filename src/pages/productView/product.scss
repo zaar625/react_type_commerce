@@ -1,0 +1,85 @@
+@use "../../scss/" as *;
+
+.productDetail {
+    margin-top: $header-height;
+    padding: 0 2rem;
+    gap: 2rem;
+    @include flex(center,space-between);
+
+    & > div {
+        width: 35%;
+    }
+
+    &__info {
+        @include flex(center, unset);
+
+        &__container {
+            width: 70%;
+            @include flex(unset, unset);
+            flex-direction: column;
+            gap: 1rem;
+            font-size: 0.825rem;
+        }
+    }
+
+    &__des {
+        @include flex(unset, space-between);
+        gap: 1rem;
+        flex-direction: column;
+        padding-left:2rem ;
+        margin-bottom: auto;
+
+
+        &__container {
+            width: 70%;
+            @include flex(unset, center);
+            gap:1rem;
+            flex-direction: column;
+
+           &__color{
+            display: flex;
+            gap:1rem;
+            cursor: pointer;
+
+            & .color {
+                @include flex(center, unset);
+                gap: 0.5rem;
+               
+            }
+           }
+        }
+
+        &__quan {
+            @include flex(center, space-between);
+            width: 70%;
+
+            & svg {
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+
+        &__btns {
+            width: 70%;
+            @include flex(unset, unset);
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+    }
+
+
+    &__imageBox__slider {
+        max-width: 450px;
+    }
+}
+.circle{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.color_active {
+    color: var(--main-color);
+    font-weight: bold;
+}

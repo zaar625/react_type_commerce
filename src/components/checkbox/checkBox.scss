@@ -1,0 +1,39 @@
+@use "../../scss/" as *;
+
+.custom-checkbox{
+    @include flex(center, flex-start);
+    cursor: pointer;
+    &:hover {
+        color:var(--main-color);
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    &__checkmark {
+        margin-right: 10px;
+        height: 15px;
+        width: 15px;
+        border: 1px solid var(--txt-color);
+
+       svg {
+            transform: scale(0);
+            padding-bottom: 4px;
+            transition: transform 0.3s ease;
+        }
+    }
+
+    input:checked ~ &__checkmark {
+        border: 1px solid var(--main-color);
+        color: var(--text-color);
+    }
+
+    input:checked ~ &__checkmark > svg{
+        transform: scale(1.5);
+    }
+}

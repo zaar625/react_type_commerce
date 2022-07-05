@@ -1,0 +1,28 @@
+@use "../../scss" as *;
+
+.review {
+    height: calc(75vh - $header-height);
+    padding: 0 2rem;
+    margin-top: calc($header-height + 4rem);
+
+    &__container {
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+
+        & > a {
+            display: inline-block;
+            margin-left: auto;
+        }
+        
+    }
+    &__postbox {
+        @include flex(unset, unset);
+        gap:1rem;
+        width: 100%;
+
+        .review-post {
+            width:20%;
+        }
+    }
+    }

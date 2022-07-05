@@ -1,0 +1,27 @@
+@use "../../scss/" as *;
+.footer{
+    @include flex (center,space-between);
+    gap: 1rem;
+    padding: 1rem;
+
+    &__content {
+        width: 25%;
+        @include flex(center, center);
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__social a > svg {
+        font-size: 1.2rem;
+        margin-right: 10px;
+        transition: 0.3s;
+
+        &:hover {
+            transform: translateY(-0.25rem);
+        }
+    }
+    &__cards img {
+        width: 30px;
+        margin-right: 10px;
+    }
+}

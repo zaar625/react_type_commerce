@@ -1,0 +1,31 @@
+@use "../../scss/" as *;
+
+button {
+    cursor: pointer;
+    font-family: $font-family;
+}
+.btn {
+    border-radius: $border-radius;
+    padding: 0.5rem 1.8rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: relative;
+}
+
+.btn-outline {
+    border: 3px solid $border-color;
+    background-color: transparent;
+    color: var(--txt-color);
+    box-shadow: unset;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+.btn-outline:hover {
+    box-shadow: unset;
+    color: #fff;
+    background-color:var(--main-color);
+}
+.btn.small {
+    border-width: 2px;
+    padding: 0.25rem 1.5rem;
+    font-size: 1rem;
+}

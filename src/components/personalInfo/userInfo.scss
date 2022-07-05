@@ -1,0 +1,22 @@
+@use "../../scss/" as *;
+
+.useInfo {
+    display: flex;
+    gap:1rem;
+    flex-direction: column;
+    color: rgb(143, 143, 143);
+
+    &__content {
+        font-size: 0.825rem;
+        display: flex;
+        gap:1rem;
+        margin-bottom: 10px;
+        padding-bottom: 1rem;
+        border-bottom: solid 2px rgb(143, 143, 143);
+
+        &__detail {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

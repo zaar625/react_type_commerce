@@ -1,0 +1,13 @@
+@use '../../scss/' as *;
+
+.cart-page {
+    padding: 0 2rem;
+    margin-top: calc($header-height + 4rem);
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+}
+.swiper-slide {
+    width: 30%;
+}

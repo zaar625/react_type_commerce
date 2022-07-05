@@ -1,0 +1,23 @@
+:root {
+    // 기본설정
+    --txt-color: #000;
+    --main-color:#606B31;
+    --main-bg:#fff;
+    --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    --overlay-bg:rgba(206, 206, 206, 0.6);
+    // 라이트설정
+    --light-txt: #000;
+    --light-bg: #fff;
+    --dark-txt: rgb(255, 255, 255);
+    --dark-bg: #01021A;
+}
+
+
+$border-color:#606B31;
+$mobile-width: 767px;
+$tablet-width: 1024px;
+$header-height: 8rem;
+$header-shrink-height: 5rem;
+$border-radius: 30px;
+$font-family: "Montserrat", sans-serif;
+$box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;

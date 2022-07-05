@@ -1,0 +1,18 @@
+@use "../../scss/" as *;
+
+.number-cart {
+    position: relative;
+
+    &__num {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+       top:-15px;
+       left: 15px;
+        border-radius:50%;
+        background-color: rgba(93, 93, 93, 0.574);
+        text-align: center;
+        font-size: 0.825rem;
+        font-weight: bold;
+    }
+}

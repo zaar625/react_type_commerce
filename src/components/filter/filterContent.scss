@@ -1,0 +1,23 @@
+@use "../../scss/" as *;
+
+.filter-content{
+    padding:0 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    
+    &__card {
+        width: 15%;
+
+        & p {
+            text-align: center;
+        }
+        @include tablet {
+            width: 30%;
+        }
+
+        @include mobile {
+            width: 40%;
+        }
+    }
+}
