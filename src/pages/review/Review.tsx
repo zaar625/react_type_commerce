@@ -2,7 +2,6 @@ import Button from 'components/button/Button';
 import ReviewCard from 'components/reviewcard/ReviewCard';
 import { db } from 'firebase/firebaseInit';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './review.scss';

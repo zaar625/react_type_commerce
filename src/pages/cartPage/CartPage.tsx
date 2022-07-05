@@ -1,6 +1,5 @@
-import { useEffect, useState, useCallback } from 'react';
-import firebase from 'firebase/app';
-import { db } from 'firebase/firebaseInit';
+import { useEffect, useState } from 'react';
+import { db, database } from 'firebase/firebaseInit';
 import { useSelector } from 'react-redux';
 import CartCard from 'components/cartCard/CartCard';
 import { SwiperSlide, Swiper } from 'swiper/react';
@@ -32,8 +31,6 @@ const CartPage = () => {
         0,
       ),
     );
-
-    // total();
   }, [
     loginUserItems,
     notUserItems,
@@ -57,7 +54,44 @@ const CartPage = () => {
   //     }
   //   });
   // };
+  const purchase = () => {
+    if (user && window.confirm('해당 상품을 구매하시겠습니까?')) {
+      const purchaseItem = loginUserItems;
+      console.log(purchaseItem);
+      const salesItem = { ...purchaseItem };
+      // firebase stock데이터 변경 로직
+      purchaseItem.forEach((i) => {
+        const newStock = i.quantity;
+        db.collection('products')
+          .where('name', '==', `${i.name}`)
+          .get()
+          .then((res) => {
+            res.forEach((doc) => {
+              const itemStock = doc.data().stock;
+              const newPostKey = database.ref().child(`${doc.id}`).key; //item06
+              console.log(newPostKey);
 
+              db.collection('products')
+                .doc(newPostKey)
+                .update({
+                  stock: itemStock - newStock,
+                })
+                .then(() => {
+                  console.log('Document successfully updated!');
+                });
+            });
+          });
+      });
+      db.collection('sales')
+        .add(salesItem)
+        .then(() => {
+          console.log('구매내역에 담겼습니다.');
+        });
+      console.log(purchaseItem);
+    } else {
+      alert('로그인을 해주세요.');
+    }
+  };
   return (
     <div className="cart-page">
       <p>장바구니에 담긴 상품은 구매가 완료될 때까지 예약되지 않습니다.</p>
@@ -78,7 +112,7 @@ const CartPage = () => {
         <div>
           <p>{totalProducts}</p>
           <p>{totalPrice}</p>
-          <Button>구매하기</Button>
+          <Button onClick={purchase}>구매하기</Button>
         </div>
       </div>
     </div>
