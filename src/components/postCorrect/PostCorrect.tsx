@@ -1,37 +1,34 @@
-import Button from 'components/button/Button';
-import { useState } from 'react';
-import { auth } from 'firebase/firebaseInit';
 import { db } from 'firebase/firebaseInit';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { storage } from 'firebase/firebaseInit';
-import './write.scss';
+import Button from 'components/button/Button';
 
-const Write = () => {
+const PostCorrect = () => {
+  const params = useParams();
+
+  const [reWrite, setRewrite] = useState<any>({});
   const [image, setImage] = useState(undefined); //이미지 상태
-  const date = new Date();
-  const postItem = {
-    user: '',
-    image: '',
-    title: '',
-    content: '',
-    date: `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`,
-    time: date.getTime(),
-  };
+  console.log(params.id);
+  //파이어베이스 해당 포스트내용 가져오기.
+  useEffect(() => {
+    db.collection('post')
+      .doc(params.id)
+      .get()
+      .then((res) => {
+        console.log(res.data());
+        setRewrite(res.data());
+      });
+  }, []);
 
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      postItem.user = user.uid;
-      console.log(user.uid);
-    }
-  });
-
-  const [writeItem, setwriteItem] = useState(postItem); //포스트 작성 내용 상태
-
-  console.log(writeItem);
+  console.log(reWrite);
 
   const onChange = (e: any) => {
     const { value, name } = e.target;
-    setwriteItem({
-      ...writeItem,
+    const date = new Date();
+    setRewrite({
+      ...reWrite,
+      date: `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`,
       [name]: value,
     });
   };
@@ -40,12 +37,12 @@ const Write = () => {
     const files = e.target.files;
     setImage(files);
   };
-  //업로드 함수
+
   const upLoad = () => {
     // const file = image === undefined ? undefined : image[0];
     // console.log(image);
 
-    if (writeItem.title === '' || writeItem.content === '') {
+    if (reWrite.title === '' || reWrite.content === '') {
       alert('제목과 내용을 확인 해 주세요.');
     } else if (image !== undefined) {
       const storageRef = storage.ref();
@@ -64,28 +61,30 @@ const Write = () => {
         () => {
           fileupLoad.snapshot.ref.getDownloadURL().then((url) => {
             console.log('업로드된 경로는', url);
-            const updateItem = {
-              ...writeItem,
+            const editItem = {
+              ...reWrite,
               image: url,
             };
 
             db.collection('post')
-              .add(updateItem)
+              .doc(params.id)
+              .update(editItem)
               .then((result) => {
-                alert('게시글이 등록되었습니다.');
+                alert('수정되었습니다.');
                 window.location.replace('/review');
               })
               .catch((error) => {
-                alert('실패');
+                console.error('실패사유는', error);
               });
           });
         },
       );
     } else {
       db.collection('post')
-        .add(writeItem)
+        .doc(reWrite.id)
+        .update(reWrite)
         .then((result) => {
-          alert('성공하였습니다.');
+          alert('수정되었습니다.');
           console.log(result); //성공하면 결과값 출력 (result)
           // window.location.href = "/index.html"
           window.location.replace('/review');
@@ -96,16 +95,18 @@ const Write = () => {
         });
     }
   };
+
   return (
     <div className="write container">
       <div className="write__form">
-        <h2>작성하기</h2>
+        <h2>수정하기</h2>
         <form>
           <input
             type="txt"
             placeholder="제목"
             name="title"
             onChange={onChange}
+            value={reWrite.title}
           ></input>
           <label className="a11y-hidden ">tilte</label>
         </form>
@@ -115,6 +116,7 @@ const Write = () => {
             name="content"
             id="password"
             onChange={onChange}
+            value={reWrite.content}
           ></textarea>
           <label className="a11y-hidden ">content</label>
         </form>
@@ -135,4 +137,4 @@ const Write = () => {
   );
 };
 
-export default Write;
+export default PostCorrect;

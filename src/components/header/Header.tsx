@@ -34,7 +34,10 @@ const Header = () => {
       .auth()
       .signOut()
       .then(() => {
-        console.log('로그아웃되었습니다.');
+        if (window.confirm('로그아웃하시겠습니까?')) {
+          alert('로그아웃되었습니다.');
+          window.location.replace('/');
+        }
       })
       .catch((error) => {
         console.log('로그아웃 실패');

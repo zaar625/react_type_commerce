@@ -4,7 +4,7 @@ import './filterContent.scss';
 
 const FilterContent = (props: any) => {
   return (
-    <div className="filter-content container">
+    <div className="filter-content ">
       {props.data.map((item: any, index: number) => (
         <div className="filter-content__card" key={index}>
           <ProductCard item={item} />

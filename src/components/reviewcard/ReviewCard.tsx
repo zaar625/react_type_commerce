@@ -1,10 +1,11 @@
 import Button from 'components/button/Button';
 import { auth } from 'firebase/firebaseInit';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { db } from 'firebase/firebaseInit';
 import './reviewCard.scss';
 
 const ReviewCard = ({ postItems }: any) => {
+  const navigate = useNavigate();
   // 포스트 삭제하기
   const deletePost = () => {
     auth.onAuthStateChanged((user) => {
@@ -16,6 +17,7 @@ const ReviewCard = ({ postItems }: any) => {
               .delete()
               .then(() => {
                 alert('삭제되었습니다');
+                window.location.replace('/review');
               });
           }
         } else {
@@ -31,9 +33,11 @@ const ReviewCard = ({ postItems }: any) => {
       if (user) {
         if (user.uid === postItems.data.user) {
           if (window.confirm('해당 게시물을 수정하시겠습니까?')) {
-            console.log('yes');
+            navigate(`/review/${postItems.id}`);
           }
         }
+      } else {
+        alert('수정권한이 없습니다.');
       }
     });
   };
@@ -42,7 +46,6 @@ const ReviewCard = ({ postItems }: any) => {
       <div className="review-card__container">
         <div className="review-card__container__header">
           <div className="revier-card__container__header__titleBox">
-            <div>{postItems.data.title}</div>
             <div>{postItems.data.title}</div>
           </div>
           <div>{postItems.data.date}</div>
@@ -55,9 +58,10 @@ const ReviewCard = ({ postItems }: any) => {
           <p>{postItems.data.content}</p>
         </div>
         <div className="review-card__container__btns">
-          <Link onClick={correctPost} to="/write">
-            <Button className="small">Correct</Button>
-          </Link>
+          <Button onClick={correctPost} className="small">
+            Correct
+          </Button>
+
           <Button onClick={deletePost} className="small">
             Delete
           </Button>

@@ -15,6 +15,8 @@ import { login } from 'redux/login';
 import Write from 'components/write/Write';
 import Review from 'pages/review/Review';
 import CartPage from 'pages/cartPage/CartPage';
+import Admin from 'pages/admin/Admin';
+import PostCorrect from 'components/postCorrect/PostCorrect';
 
 function App() {
   const themeMode = useSelector((state: RootState) => state.theme.mode);
@@ -41,8 +43,10 @@ function App() {
           <Route path="/login/" element={<Login />}></Route>
           <Route path="/signup/" element={<SignUp />}></Route>
           <Route path="/write/" element={<Write />}></Route>
+          <Route path="/review/:id" element={<PostCorrect />}></Route>
           <Route path="/review/" element={<Review />}></Route>
           <Route path="/cart/" element={<CartPage />}></Route>
+          <Route path="/admin/" element={<Admin />}></Route>
         </Routes>
         <Footer />
       </div>

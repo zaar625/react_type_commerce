@@ -14,5 +14,12 @@
         text-align: center;
         font-size: 0.825rem;
         font-weight: bold;
+
+        @include mobile {
+            width: 15px;
+            height: 15px;
+            left: 10px;
+            top: -10px;
+        }
     }
 }

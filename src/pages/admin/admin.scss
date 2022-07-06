@@ -1,0 +1,18 @@
+@use '../../scss/' as *;
+
+.admin{
+    margin-top: calc($header-height + 4rem);
+    padding: 0 2rem;
+
+    &__charts {
+       display: flex;
+        gap: 4rem;
+        &__stock {
+            width: 50%;
+        }
+        &__sales {
+            width: 25%;
+        }
+
+    }
+}

@@ -3,7 +3,6 @@ import { useCallback, useEffect, useState } from 'react';
 import { db } from 'firebase/firebaseInit';
 import CheckBox from 'components/checkbox/CheckBox';
 import { AiOutlineSearch } from 'react-icons/ai';
-import Button from 'components/button/Button';
 import './filter.scss';
 import FilterContent from './FilterContent';
 

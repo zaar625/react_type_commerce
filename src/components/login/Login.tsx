@@ -1,10 +1,13 @@
-import Button from 'components/button/Button';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase/app';
+import Button from 'components/button/Button';
+import { login } from 'redux/login';
 import './login.scss';
-import { useState } from 'react';
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
@@ -18,15 +21,17 @@ const Login = () => {
     }
   };
 
-  const login = (e: any) => {
+  const logins = () => {
     // 로그인하기
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
         alert('회원님 반갑습니다.');
+        dispatch(login(true));
         window.location.replace('/');
-      });
+      })
+      .catch((error) => alert('정보가 일치하지 않습니다.'));
   };
 
   return (
@@ -55,7 +60,7 @@ const Login = () => {
           <label className="a11y-hidden ">password</label>
         </form>
         <p>비밀번호를 잊으셨습니까?</p>
-        <Button onClick={login} className="">
+        <Button onClick={logins} className="">
           Login
         </Button>
       </div>

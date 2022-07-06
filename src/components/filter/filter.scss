@@ -9,10 +9,25 @@
     &__widget {
         display: flex;
         gap:1rem;
+
+        @include mobile {
+            flex-direction: column;
+        }
+
+        & h4{
+            @include mobile {
+                margin: auto;
+            }
+        }
     }
 
     &__content {
         display: flex;
+        @include mobile {
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
         &__item {
             margin-right: 10px;
         }

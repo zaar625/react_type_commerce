@@ -60,13 +60,6 @@ const ProductDetail = () => {
         dispatch(addItem(newItem));
         alert('장바구니에 담겼습니다.');
       }
-
-      // if (dispatch(addItem(newItem))) {
-      //   alert('장바구니에 담겼습니다.');
-      //   // window.location.replace('/');
-      // } else {
-      //   alert('다시 한번 시도해주세요.');
-      // }
     } else {
       alert('색상을 선택해 주세요');
     }

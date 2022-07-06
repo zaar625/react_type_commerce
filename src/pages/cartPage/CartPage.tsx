@@ -39,27 +39,16 @@ const CartPage = () => {
     totalPrice,
     UserCartItems,
   ]);
-
-  // 로그인 유저의 아이템 가져오는 함수.
-  // const fetchUserItems = () => {
-  //   firebase.auth().onAuthStateChanged((user) => {
-  //     if (user) {
-  //       db.collection('user')
-  //         .doc(user.uid)
-  //         .get()
-  //         .then((res) => {
-  //           console.log(res.data().cart);
-  //           setLoginUserItems(res.data().cart);
-  //         });
-  //     }
-  //   });
-  // };
+  const date = new Date().getDate();
+  console.log({ ...loginUserItems, date });
   const purchase = () => {
     if (user && window.confirm('해당 상품을 구매하시겠습니까?')) {
       const purchaseItem = loginUserItems;
       console.log(purchaseItem);
       const salesItem = { ...purchaseItem };
-      // firebase stock데이터 변경 로직
+      console.log(salesItem);
+
+      // -------------------------firebase stock데이터 변경 로직
       purchaseItem.forEach((i) => {
         const newStock = i.quantity;
         db.collection('products')
@@ -87,7 +76,6 @@ const CartPage = () => {
         .then(() => {
           console.log('구매내역에 담겼습니다.');
         });
-      console.log(purchaseItem);
     } else {
       alert('로그인을 해주세요.');
     }
