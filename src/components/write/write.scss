@@ -1,18 +1,15 @@
 @use "../../scss/" as *;
 
 .write{
-    height: calc(75vh - $header-height);
     padding: 0 2rem;
     gap: 5rem;
     display: flex;
-    margin-top: calc($header-height + 4rem);
 
     &__form {
         width: 30%;
         @include flex(unset, unset);
         gap: 1rem;
         flex-direction: column;
-        padding-right: 14rem;   
 
         @include tablet {
             width: 100%;

@@ -4,6 +4,7 @@ import { auth } from 'firebase/firebaseInit';
 import { db } from 'firebase/firebaseInit';
 import { storage } from 'firebase/firebaseInit';
 import './write.scss';
+import PageHeader from 'components/pageHeader/PageHeader';
 
 const Write = () => {
   const [image, setImage] = useState(undefined); //이미지 상태
@@ -97,41 +98,44 @@ const Write = () => {
     }
   };
   return (
-    <div className="write container section">
-      <div className="write__form">
-        <h2>작성하기</h2>
-        <form>
-          <input
-            type="txt"
-            placeholder="제목"
-            name="title"
-            onChange={onChange}
-          ></input>
-          <label className="a11y-hidden ">tilte</label>
-        </form>
-        <form>
-          <textarea
-            placeholder="내용"
-            name="content"
-            id="password"
-            onChange={onChange}
-          ></textarea>
-          <label className="a11y-hidden ">content</label>
-        </form>
-        <form>
-          <input
-            name="image"
-            type="file"
-            placeholder="이미지 파일"
-            onChange={fileOnChange}
-          ></input>
-          <label className="a11y-hidden ">image</label>
-        </form>
-        <Button className="" onClick={upLoad}>
-          Up Load
-        </Button>
+    <>
+      <PageHeader />
+      <div className="write container section">
+        <div className="write__form">
+          <h2>작성하기</h2>
+          <form>
+            <input
+              type="txt"
+              placeholder="제목"
+              name="title"
+              onChange={onChange}
+            ></input>
+            <label className="a11y-hidden ">tilte</label>
+          </form>
+          <form>
+            <textarea
+              placeholder="내용"
+              name="content"
+              id="password"
+              onChange={onChange}
+            ></textarea>
+            <label className="a11y-hidden ">content</label>
+          </form>
+          <form>
+            <input
+              name="image"
+              type="file"
+              placeholder="이미지 파일"
+              onChange={fileOnChange}
+            ></input>
+            <label className="a11y-hidden ">image</label>
+          </form>
+          <Button className="" onClick={upLoad}>
+            Up Load
+          </Button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

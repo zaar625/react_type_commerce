@@ -1,4 +1,5 @@
 import Button from 'components/button/Button';
+import PageHeader from 'components/pageHeader/PageHeader';
 import ReviewCard from 'components/reviewcard/ReviewCard';
 import { db } from 'firebase/firebaseInit';
 import { useEffect, useState } from 'react';
@@ -45,20 +46,23 @@ const Review = () => {
   }, []);
 
   return (
-    <div className="review container section">
-      <div className="review__container">
-        <Button onClick={userCheck}>Write</Button>
-        <div className="review__postbox">
-          {postItems.length > 0
-            ? postItems.map((item, index) => (
-                <div className="review-post" key={index}>
-                  <ReviewCard postItems={item}></ReviewCard>
-                </div>
-              ))
-            : ''}
+    <>
+      <PageHeader />
+      <div className="review container section">
+        <div className="review__container">
+          <Button onClick={userCheck}>Write</Button>
+          <div className="review__postbox">
+            {postItems.length > 0
+              ? postItems.map((item, index) => (
+                  <div className="review-post" key={index}>
+                    <ReviewCard postItems={item}></ReviewCard>
+                  </div>
+                ))
+              : ''}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

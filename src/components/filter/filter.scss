@@ -1,7 +1,6 @@
 @use "../../scss/" as *;
 
 .filter{
-    margin-top:$header-height;
     @include flex(center,center);
     flex-direction: column;
     gap: 2rem;
@@ -36,9 +35,10 @@
     &__input  form {
         @include flex(center, center);
         border-bottom: solid 1px var(--txt-color);
-
+        
         & input {
             border:none;
+            background-color: transparent;
         }
     }
 }

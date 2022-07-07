@@ -6,6 +6,7 @@ import { BiErrorCircle } from 'react-icons/bi';
 import './signup.scss';
 import { UseInfo, UseInfoSelect } from 'components/personalInfo/UseInfo';
 import CheckBox from 'components/checkbox/CheckBox';
+import PageHeader from 'components/pageHeader/PageHeader';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -83,60 +84,63 @@ const SignUp = () => {
     }
   };
   return (
-    <div className="signup container">
-      <div className="signup__form">
-        <h2>개인정보</h2>
-        <form>
-          <input
-            type="email"
-            placeholder="이메일"
-            onChange={emailvalue}
-            onKeyUp={emailCheck}
-          ></input>
-          <label className="a11y-hidden ">이메일</label>
-          <div className="email error">
-            <BiErrorCircle />
-            <p>이메일 형식이 아닙니다. 확인해주세요.</p>
-          </div>
-        </form>
-        <form>
-          <input
-            type="password"
-            placeholder="비밀번호"
-            id="pw"
-            onChange={pwvalue}
-          ></input>
-          <label className="a11y-hidden ">password</label>
-        </form>
-        <form>
-          <input
-            type="password"
-            placeholder="비밀번호를 다시 한번 입력해주세요"
-            id="pw"
-            onChange={DBpwvalue}
-            onKeyUp={passwordCheck}
-          ></input>
-          <label className="a11y-hidden ">password</label>
-          <div className="pw error">
-            <BiErrorCircle />
-            <p>비밀번호가 다릅니다. 다시 입력해주세요.</p>
-          </div>
-        </form>
-        <form>
-          <input type="text" placeholder="이름"></input>
-          <label className="a11y-hidden ">dlfma</label>
-        </form>
-        <CheckBox onChange={agreeCheck}>
-          필수적 개인정보의 수집 및 이용에 대한 동의
-        </CheckBox>
-        <CheckBox>선택적 개인정보의 수집 및 이용에 대한 동의</CheckBox>
-        <Button className="" onClick={signUp}>
-          Sign in
-        </Button>
+    <>
+      <PageHeader />
+      <div className="signup container">
+        <div className="signup__form">
+          <h2>개인정보</h2>
+          <form>
+            <input
+              type="email"
+              placeholder="이메일"
+              onChange={emailvalue}
+              onKeyUp={emailCheck}
+            ></input>
+            <label className="a11y-hidden ">이메일</label>
+            <div className="email error">
+              <BiErrorCircle />
+              <p>이메일 형식이 아닙니다. 확인해주세요.</p>
+            </div>
+          </form>
+          <form>
+            <input
+              type="password"
+              placeholder="비밀번호"
+              id="pw"
+              onChange={pwvalue}
+            ></input>
+            <label className="a11y-hidden ">password</label>
+          </form>
+          <form>
+            <input
+              type="password"
+              placeholder="비밀번호를 다시 한번 입력해주세요"
+              id="pw"
+              onChange={DBpwvalue}
+              onKeyUp={passwordCheck}
+            ></input>
+            <label className="a11y-hidden ">password</label>
+            <div className="pw error">
+              <BiErrorCircle />
+              <p>비밀번호가 다릅니다. 다시 입력해주세요.</p>
+            </div>
+          </form>
+          <form>
+            <input type="text" placeholder="이름"></input>
+            <label className="a11y-hidden ">dlfma</label>
+          </form>
+          <CheckBox onChange={agreeCheck}>
+            필수적 개인정보의 수집 및 이용에 대한 동의
+          </CheckBox>
+          <CheckBox>선택적 개인정보의 수집 및 이용에 대한 동의</CheckBox>
+          <Button className="" onClick={signUp}>
+            Sign in
+          </Button>
+        </div>
+        <UseInfo />
+        <UseInfoSelect />
       </div>
-      <UseInfo />
-      <UseInfoSelect />
-    </div>
+    </>
   );
 };
 

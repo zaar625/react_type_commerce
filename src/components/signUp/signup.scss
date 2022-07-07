@@ -1,6 +1,5 @@
 @use "../../scss/" as *;
 .signup{
-    margin-top: calc($header-height + 4rem);
     height: calc(75vh - $header-height);
     padding: 0 2rem;
     gap: 2rem;

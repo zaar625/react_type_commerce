@@ -2,10 +2,22 @@
 
 .cart-page {
     padding: 0 2rem;
-    margin-top: calc($header-height + 4rem);
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 1rem;
+
+    & > p {
+        padding: 1rem;
+        background-color: #dbe6ce;
+        font-size: 0.825rem;
+        color: black;
+    }
+
+    &__purchase {
+        display: flex;
+        gap: 4rem;
+        justify-content: end;
+    }
 
 }
 .swiper-slide {

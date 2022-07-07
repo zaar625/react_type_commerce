@@ -1,10 +1,13 @@
 import Filter from 'components/filter/Filter';
-
+import PageHeader from 'components/pageHeader/PageHeader';
 const Products = () => {
   return (
-    <div className="container section">
-      <Filter />
-    </div>
+    <>
+      <PageHeader />
+      <div className="container section">
+        <Filter />
+      </div>
+    </>
   );
 };
 
