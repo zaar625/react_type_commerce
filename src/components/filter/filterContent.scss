@@ -1,10 +1,14 @@
 @use "../../scss/" as *;
 
 .filter-content{
-    @include flex(unset, space-between);
+    @include flex(unset, unset);
     gap: 1rem;
     flex-wrap: wrap;
     margin: auto;
+
+    @include mobile {
+        justify-content: space-between;
+    }
     
     &__card {
         width: 15%;

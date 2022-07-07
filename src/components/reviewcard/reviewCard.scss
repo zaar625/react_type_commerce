@@ -4,6 +4,9 @@
     padding: 0.8rem;
     border: solid 1px rgb(179, 179, 179);
     border-radius: $border-radius;
+    @include mobile {
+        border-radius: 10px
+    }
 
     &__container {
         @include flex(unset, unset);

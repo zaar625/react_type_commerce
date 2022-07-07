@@ -45,7 +45,7 @@ const Review = () => {
   }, []);
 
   return (
-    <div className="review">
+    <div className="review container section">
       <div className="review__container">
         <Button onClick={userCheck}>Write</Button>
         <div className="review__postbox">

@@ -97,7 +97,7 @@ const Write = () => {
     }
   };
   return (
-    <div className="write container">
+    <div className="write container section">
       <div className="write__form">
         <h2>작성하기</h2>
         <form>

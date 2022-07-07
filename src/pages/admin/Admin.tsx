@@ -5,15 +5,13 @@ import { SalesChart } from 'components/chart/SalesChart';
 
 const Admin = () => {
   return (
-    <div>
-      <div className="admin">
-        <div className="admin__charts">
-          <div className="admin__charts__stock">
-            <StockChart />
-          </div>
-          <div className="admin__charts__sales">
-            <SalesChart />
-          </div>
+    <div className="admin">
+      <div className="admin__charts">
+        <div className="admin__charts__stock">
+          <StockChart />
+        </div>
+        <div className="admin__charts__sales">
+          <SalesChart />
         </div>
       </div>
     </div>

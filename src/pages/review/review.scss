@@ -2,7 +2,6 @@
 
 .review {
     height: calc(75vh - $header-height);
-    padding: 0 2rem;
     margin-top: calc($header-height + 4rem);
 
     &__container {
@@ -10,8 +9,7 @@
         gap: 1rem;
         flex-direction: column;
 
-        & > a {
-            display: inline-block;
+        & > button {
             margin-left: auto;
         }
         
@@ -23,6 +21,10 @@
 
         .review-post {
             width:20%;
+
+            @include mobile {
+                width: 100%;
+            }
         }
     }
     }
