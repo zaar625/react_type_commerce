@@ -1,7 +1,7 @@
 @use "../../scss" as *;
 
 .review {
-    height: calc(75vh - $header-height);
+    // height: calc(75vh - $header-height);
     margin-top: calc($header-height + 4rem);
 
     &__container {
@@ -19,8 +19,16 @@
         gap:1rem;
         width: 100%;
 
+        @include tablet {
+            flex-wrap: wrap;
+        }
+
         .review-post {
             width:20%;
+
+            @include tablet {
+                width: 45%;
+            }
 
             @include mobile {
                 width: 100%;

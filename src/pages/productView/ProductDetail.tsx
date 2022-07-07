@@ -76,7 +76,7 @@ const ProductDetail = () => {
   return (
     <>
       {productDetail.length > 0 ? (
-        <div className="productDetail">
+        <div className="productDetail container section">
           <div className="productDetail__info">
             <div className="productDetail__info__container">
               <p>소재, 세탁 방법 및 원산지</p>
