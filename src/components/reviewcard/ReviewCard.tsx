@@ -1,10 +1,15 @@
 import Button from 'components/button/Button';
 import { auth } from 'firebase/firebaseInit';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { db } from 'firebase/firebaseInit';
+import { PostItemsType } from 'pages/review/Review';
 import './reviewCard.scss';
 
-const ReviewCard = ({ postItems }: any) => {
+interface PropsType {
+  postItems: PostItemsType;
+}
+
+const ReviewCard = ({ postItems }: PropsType) => {
   const navigate = useNavigate();
   // 포스트 삭제하기
   const deletePost = () => {

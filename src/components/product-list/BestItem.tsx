@@ -13,6 +13,7 @@ export interface ProductsType {
   ver: string;
   price: number;
   imageDetail: string[];
+  stock: number;
 }
 
 const BestItem = () => {
@@ -20,6 +21,7 @@ const BestItem = () => {
   const data: any = [];
 
   useEffect(() => {
+    console.log('best lendering');
     const fetchData = async () => {
       await db
         .collection('products')

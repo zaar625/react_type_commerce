@@ -25,7 +25,6 @@ const headerNav = [
 
 const Header = () => {
   const user = useSelector((state: RootState) => state.login.login);
-  console.log(user);
   const { pathname } = useLocation();
   const headerRef = useRef<HTMLDivElement>(null);
   const active = headerNav.findIndex((e) => e.path === pathname);
@@ -40,7 +39,7 @@ const Header = () => {
           window.location.replace('/');
         }
       })
-      .catch((error) => {
+      .catch(() => {
         console.log('로그아웃 실패');
       });
   };

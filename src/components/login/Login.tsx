@@ -27,12 +27,12 @@ const Login = () => {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then((res) => {
+      .then(() => {
         alert('회원님 반갑습니다.');
         dispatch(login(true));
         window.location.replace('/');
       })
-      .catch((error) => alert('정보가 일치하지 않습니다.'));
+      .catch(() => alert('정보가 일치하지 않습니다.'));
   };
 
   return (

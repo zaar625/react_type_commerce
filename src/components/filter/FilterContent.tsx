@@ -1,11 +1,17 @@
 import ProductCard from 'components/productCard/ProductCard';
+import { ProductsType } from 'components/product-list/NewArrival';
 
 import './filterContent.scss';
 
-const FilterContent = (props: any) => {
+interface PropsType {
+  data: ProductsType[];
+}
+
+const FilterContent = ({ data }: PropsType) => {
+  console.log('filter-content lendering');
   return (
     <div className="filter-content ">
-      {props.data.map((item: any, index: number) => (
+      {data.map((item: ProductsType, index: number) => (
         <div className="filter-content__card" key={index}>
           <ProductCard item={item} />
           <p>{item.name}</p>

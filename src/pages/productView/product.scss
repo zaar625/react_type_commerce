@@ -1,7 +1,6 @@
 @use "../../scss/" as *;
 
 .productDetail {
-    margin-top: $header-height;
     gap: 2rem;
     @include flex(center,space-between);
 

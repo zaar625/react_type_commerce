@@ -37,7 +37,7 @@ const Write = () => {
     });
   };
 
-  const fileOnChange = (e: any) => {
+  const fileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     setImage(files);
   };
@@ -72,11 +72,11 @@ const Write = () => {
 
             db.collection('post')
               .add(updateItem)
-              .then((result) => {
+              .then(() => {
                 alert('게시글이 등록되었습니다.');
                 window.location.replace('/review');
               })
-              .catch((error) => {
+              .catch(() => {
                 alert('실패');
               });
           });

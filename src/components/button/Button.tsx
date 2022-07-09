@@ -6,6 +6,7 @@ type Props = {
   onClick?: (e: any) => void;
 };
 const Button = (props: Props) => {
+  console.log('button rendering');
   return (
     <button
       className={`btn-outline btn ${props.className}`}

@@ -7,6 +7,7 @@ import Season from 'components/season/Season';
 import TrendItem from 'components/product-list/TrendItem';
 
 export const Home = () => {
+  console.log('home lendering');
   return (
     <>
       <HeroSlide />
@@ -24,7 +25,7 @@ export const Home = () => {
         {/* BEST */}
         <div className="section mb-3">
           <div className="section__header mb-2">
-            <h2>Best Arrival</h2>
+            <h2>Best Items</h2>
             <Link to="/products">
               <Button className="small">View more</Button>
             </Link>
@@ -38,7 +39,7 @@ export const Home = () => {
         {/* TREND */}
         <div className="section mb-3">
           <div className="section__header mb-2">
-            <h2>Best Arrival</h2>
+            <h2>Trend Items</h2>
             <Link to="/products">
               <Button className="small">View more</Button>
             </Link>

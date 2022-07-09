@@ -4,19 +4,34 @@ import { useSelector } from 'react-redux';
 import CartCard from 'components/cartCard/CartCard';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import Button from 'components/button/Button';
+import PageHeader from 'components/pageHeader/PageHeader';
+import { RootState } from 'redux/store';
 
 import './cartPage.scss';
-import PageHeader from 'components/pageHeader/PageHeader';
+
+// 타입
+export interface CartProductType {
+  color: string;
+  id: number;
+  image: string;
+  name: string;
+  price: number;
+  quantity: number;
+}
 
 const CartPage = () => {
-  const notUserCartItems = useSelector((state: any) => state.cartItem.items);
-  const UserCartItems = useSelector((state: any) => state.userCartItem.items);
+  const notUserCartItems = useSelector(
+    (state: RootState) => state.cartItem.items,
+  );
+  const UserCartItems = useSelector(
+    (state: RootState) => state.userCartItem.items,
+  );
 
-  const user = useSelector((state: any) => state.login.login);
+  const user = useSelector((state: RootState) => state.login.login);
   console.log(user);
 
-  const [loginUserItems, setLoginUserItems] = useState<any[]>([]); //로그인 유저 카트 아이템들
-  const [notUserItems, setNoUserItems] = useState<any[]>([]); //비유저 카트 아이템
+  const [loginUserItems, setLoginUserItems] = useState<CartProductType[]>([]); //로그인 유저 카트 아이템들
+  const [notUserItems, setNoUserItems] = useState<CartProductType[]>([]); //비유저 카트 아이템
   const [totalProducts, setTotalProducts] = useState(0); //카트상품 총 개수(동일품목시 수량까지 합산)
   const [totalPrice, setTotalPrice] = useState(0); //카트상품 총 금액
 
@@ -28,7 +43,10 @@ const CartPage = () => {
     const el = user ? loginUserItems : notUserItems;
 
     setTotalProducts(
-      el.reduce((pre: any, curr: any) => pre + Number(curr.quantity), 0),
+      el.reduce(
+        (pre: number, curr: CartProductType) => pre + Number(curr.quantity),
+        0,
+      ),
     ); //총수량
     setTotalPrice(
       el.reduce(

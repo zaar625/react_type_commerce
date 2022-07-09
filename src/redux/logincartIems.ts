@@ -59,7 +59,7 @@ const UsercartItemsSlice = createSlice({
             ...action.payload,
             id: state.items.length > 0 ? state.items[state.items.length - 1].id + 1 : 1
         }]
-        localStorage.setItem('loginCartItems', JSON.stringify(state.items.sort((a:any, b:any) => a.id > b.id ? 1 : (a.id < b.id ? -1 : 0))))
+        localStorage.setItem('loginCartItems', JSON.stringify(state.items.sort((a:Item, b:Item) => a.id > b.id ? 1 : (a.id < b.id ? -1 : 0))))
     }
     firebaseUpdate();
     },

@@ -1,13 +1,17 @@
-import { db } from 'firebase/firebaseInit';
-import { auth } from 'firebase/firebaseInit';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import './numberCart.scss';
+import { RootState } from 'redux/store';
+
 const NumberCart = () => {
-  const UserloginState = useSelector((state: any) => state.login.login);
-  const notUserCartItems = useSelector((state: any) => state.cartItem.items); //비로그인 유저카트 가져오기
-  const UserCartItems = useSelector((state: any) => state.userCartItem.items); //로그인된 유저 카트 가져오기
+  const UserloginState = useSelector((state: RootState) => state.login.login);
+  const notUserCartItems = useSelector(
+    (state: RootState) => state.cartItem.items,
+  ); //비로그인 유저카트 가져오기
+  const UserCartItems = useSelector(
+    (state: RootState) => state.userCartItem.items,
+  ); //로그인된 유저 카트 가져오기
 
   const [cartNumState, setCartNumState] = useState<number>(0);
 

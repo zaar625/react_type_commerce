@@ -26,8 +26,6 @@ function App() {
     auth.onAuthStateChanged((user) => {
       if (user) {
         dispatch(login(true));
-      } else {
-        console.log('No user');
       }
     });
   }, []);

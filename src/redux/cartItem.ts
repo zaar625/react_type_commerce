@@ -1,12 +1,11 @@
 /* eslint-disable prettier/prettier */
 import { createSlice } from '@reduxjs/toolkit';
-import { db  } from 'firebase/firebaseInit';
-import firebase from 'firebase/app'
+
 // 로컬스토리지 아이템 가져오기
 const localitems = localStorage.getItem('cartItems') !== null ? JSON.parse(localStorage.getItem('cartItems')) : []
 
 
-interface Item {
+export interface Item {
   id:number;
   name:string;
   color:string;
@@ -43,7 +42,7 @@ const cartItemsSlice = createSlice({
             ...action.payload,
             id: state.items.length > 0 ? state.items[state.items.length - 1].id + 1 : 1
         }]
-        localStorage.setItem('cartItems', JSON.stringify(state.items.sort((a:any, b:any) => a.id > b.id ? 1 : (a.id < b.id ? -1 : 0))))
+        localStorage.setItem('cartItems', JSON.stringify(state.items.sort((a:Item, b:Item) => a.id > b.id ? 1 : (a.id < b.id ? -1 : 0))))
     }
     },
     updateItem: (state, action)=>{

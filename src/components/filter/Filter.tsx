@@ -3,9 +3,10 @@ import { useCallback, useEffect, useState } from 'react';
 import { db } from 'firebase/firebaseInit';
 import CheckBox from 'components/checkbox/CheckBox';
 import { AiOutlineSearch } from 'react-icons/ai';
-import './filter.scss';
 import FilterContent from './FilterContent';
+import { ProductsType } from 'components/product-list/BestItem';
 
+import './filter.scss';
 interface InitFilter {
   class: string[];
   color: string[];
@@ -13,6 +14,7 @@ interface InitFilter {
 }
 
 const Filter = () => {
+  console.log('filter lendering');
   const initFilter: InitFilter = {
     class: [],
     color: [],
@@ -34,13 +36,13 @@ const Filter = () => {
     size: ['s', 'm'],
   };
 
-  const [products, setProducts] = useState<any[]>([]); //전체상품 상태관리
-  const [filerProducts, setFilterProducts] = useState<any[]>([]); //필터적용상품 관리
-  const [filter, setFilter] = useState(initFilter);
-  const [searchText, setSearchText] = useState('');
+  const [products, setProducts] = useState<ProductsType[]>([]); //전체상품 상태관리
+  const [filerProducts, setFilterProducts] = useState<ProductsType[]>([]); //필터적용된상품 관리
+  const [filter, setFilter] = useState(initFilter); //필터적용된 상품목록집합
+  const [searchText, setSearchText] = useState(''); //검색상태관리
 
   useEffect(() => {
-    const Alldata: any[] = [];
+    const Alldata: any = [];
 
     const fetchAllData = async () => {
       await db
@@ -60,7 +62,6 @@ const Filter = () => {
   // 체크항목에 따라 상품리스트 업데이트되는 함수
   const updateProducts = useCallback(() => {
     let temp = products;
-    console.log(temp);
     if (filter.class.length > 0) {
       temp = temp.filter((e: any) => filter.class.includes(e.class));
     }
@@ -109,7 +110,7 @@ const Filter = () => {
   };
 
   // 검색기능
-  const search = (e: any) => {
+  const search = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearchText(e.target.value);
   };
@@ -126,7 +127,6 @@ const Filter = () => {
   useEffect(() => {
     updateProducts();
   }, [updateProducts]);
-  console.log(filerProducts);
 
   return (
     <>
@@ -139,7 +139,9 @@ const Filter = () => {
               <div key={index} className="filter__content__item">
                 <CheckBox
                   label={item}
-                  onChange={(input: any) => {
+                  onChange={(
+                    input: React.InputHTMLAttributes<HTMLInputElement>,
+                  ) => {
                     filterSelect('Class', input.checked, item);
                   }}
                 ></CheckBox>
@@ -155,7 +157,9 @@ const Filter = () => {
               <div key={index} className="filter__content__item">
                 <CheckBox
                   label={item}
-                  onChange={(input: any) => {
+                  onChange={(
+                    input: React.InputHTMLAttributes<HTMLInputElement>,
+                  ) => {
                     filterSelect('Color', input.checked, item);
                   }}
                 ></CheckBox>

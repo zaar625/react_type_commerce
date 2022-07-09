@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { db } from 'firebase/firebaseInit';
 import { Bar } from 'react-chartjs-2';
+import { ProductsType } from 'components/product-list/TrendItem'; //타입
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -20,9 +21,11 @@ ChartJS.register(
   Tooltip,
   Legend,
 );
+
 const StockChart = () => {
-  const [productsData, setProductsData] = useState<any[]>([]);
+  const [productsData, setProductsData] = useState<ProductsType[]>([]);
   const stockNum = productsData.map((i) => i.stock);
+  console.log(productsData);
 
   useEffect(() => {
     const data: any[] = [];

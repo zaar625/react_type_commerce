@@ -10,13 +10,15 @@ import Button from 'components/button/Button';
 import { useSelector } from 'react-redux';
 import { userAddItem } from 'redux/logincartIems';
 import { addItem } from 'redux/cartItem';
+import PageHeader from 'components/pageHeader/PageHeader';
+import { RootState } from 'redux/store';
 import './product.scss';
 
 const ProductDetail = () => {
   const params = useParams();
   const dispatch = useDispatch();
 
-  const UserloginState = useSelector((state: any) => state.login.login);
+  const UserloginState = useSelector((state: RootState) => state.login.login);
 
   const [activeThumb, setActiveThumb] = useState<any>(); //슬라이드썸네일 상탱
   const [productDetail, setProductDetail] = useState<ProductsType[]>([]); //파이어베이스 데이터 가져오기
@@ -75,6 +77,7 @@ const ProductDetail = () => {
 
   return (
     <>
+      <PageHeader />
       {productDetail.length > 0 ? (
         <div className="productDetail container section">
           <div className="productDetail__info">

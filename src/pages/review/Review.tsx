@@ -5,12 +5,26 @@ import { db } from 'firebase/firebaseInit';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { RootState } from 'redux/store';
 import './review.scss';
 
+export interface PostItemsType {
+  data: {
+    content: string;
+    date: string;
+    image: string;
+    time: number;
+    title: string;
+    user: string;
+  };
+  id: string;
+}
+
 const Review = () => {
-  const [postItems, setPostItems] = useState([]);
+  const [postItems, setPostItems] = useState<PostItemsType[]>([]);
+  console.log(postItems);
   const navigate = useNavigate(); //포스트 각각의 아이템
-  const user = useSelector((state: any) => state.login.login);
+  const user = useSelector((state: RootState) => state.login.login);
 
   const fetchPost = async () => {
     const postItem: any = [];

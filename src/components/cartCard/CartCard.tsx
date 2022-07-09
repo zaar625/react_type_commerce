@@ -5,11 +5,18 @@ import { userUpdateItem, UserRemoveItem } from 'redux/logincartIems';
 import { AiOutlinePlusSquare, AiOutlineMinusSquare } from 'react-icons/ai';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { useSelector } from 'react-redux';
+import { CartProductType } from 'pages/cartPage/CartPage'; //타입
+import { RootState } from 'redux/store'; //리덕스 타입
 import './cartCard.scss';
 
-const CartCard = (props: any) => {
+// 타입
+interface PropsType {
+  item: CartProductType;
+}
+
+const CartCard = (props: PropsType) => {
   const dispatch = useDispatch();
-  const UserloginState = useSelector((state: any) => state.login.login);
+  const UserloginState = useSelector((state: RootState) => state.login.login);
 
   const [item, setItem] = useState(props.item);
   const [quantity, setQuantity] = useState(props.item.quantity);
