@@ -40,9 +40,11 @@ const ReviewCard = ({ postItems }: PropsType) => {
           if (window.confirm('해당 게시물을 수정하시겠습니까?')) {
             navigate(`/review/${postItems.id}`);
           }
+        } else {
+          alert('수정권한이 없습니다.');
         }
       } else {
-        alert('수정권한이 없습니다.');
+        alert('로그인을 먼저 해주세요');
       }
     });
   };

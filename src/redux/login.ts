@@ -1,9 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface LoginType {
-  loginState: boolean;
-  id: string;
-}
 const initialState = {
   login: false,
 };

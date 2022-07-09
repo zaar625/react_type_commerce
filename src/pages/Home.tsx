@@ -7,7 +7,6 @@ import Season from 'components/season/Season';
 import TrendItem from 'components/product-list/TrendItem';
 
 export const Home = () => {
-  console.log('home lendering');
   return (
     <>
       <HeroSlide />

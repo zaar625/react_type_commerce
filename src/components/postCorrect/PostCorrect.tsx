@@ -9,19 +9,15 @@ const PostCorrect = () => {
 
   const [reWrite, setRewrite] = useState<any>({});
   const [image, setImage] = useState(undefined); //이미지 상태
-  console.log(params.id);
   //파이어베이스 해당 포스트내용 가져오기.
   useEffect(() => {
     db.collection('post')
       .doc(params.id)
       .get()
       .then((res) => {
-        console.log(res.data());
         setRewrite(res.data());
       });
   }, []);
-
-  console.log(reWrite);
 
   const onChange = (e: any) => {
     const { value, name } = e.target;
@@ -39,9 +35,6 @@ const PostCorrect = () => {
   };
 
   const upLoad = () => {
-    // const file = image === undefined ? undefined : image[0];
-    // console.log(image);
-
     if (reWrite.title === '' || reWrite.content === '') {
       alert('제목과 내용을 확인 해 주세요.');
     } else if (image !== undefined) {
@@ -60,7 +53,6 @@ const PostCorrect = () => {
         // 성공시 동작하는 함수
         () => {
           fileupLoad.snapshot.ref.getDownloadURL().then((url) => {
-            console.log('업로드된 경로는', url);
             const editItem = {
               ...reWrite,
               image: url,
@@ -69,7 +61,7 @@ const PostCorrect = () => {
             db.collection('post')
               .doc(params.id)
               .update(editItem)
-              .then((result) => {
+              .then(() => {
                 alert('수정되었습니다.');
                 window.location.replace('/review');
               })
@@ -83,10 +75,8 @@ const PostCorrect = () => {
       db.collection('post')
         .doc(reWrite.id)
         .update(reWrite)
-        .then((result) => {
+        .then(() => {
           alert('수정되었습니다.');
-          console.log(result); //성공하면 결과값 출력 (result)
-          // window.location.href = "/index.html"
           window.location.replace('/review');
         })
         .catch((error) => {

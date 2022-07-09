@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { db } from 'firebase/firebaseInit';
@@ -157,7 +157,9 @@ const ProductDetail = () => {
             </div>
             <div className="productDetail__des__btns">
               <Button onClick={() => addToCart()}>Cart</Button>
-              <Button>구매하기</Button>
+              <Link to="/cart">
+                <Button>구매하기</Button>
+              </Link>
             </div>
           </div>
         </div>

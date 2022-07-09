@@ -16,7 +16,6 @@ export interface ProductsType {
 }
 
 const NewArrival = () => {
-  console.log('newArrival lendering');
   const [products, setProducts] = useState<ProductsType[]>([]);
   const data: any[] = [];
 

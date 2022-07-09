@@ -14,7 +14,6 @@ interface InitFilter {
 }
 
 const Filter = () => {
-  console.log('filter lendering');
   const initFilter: InitFilter = {
     class: [],
     color: [],

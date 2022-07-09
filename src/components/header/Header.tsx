@@ -4,8 +4,6 @@ import firebase from 'firebase/app';
 import { useEffect } from 'react';
 import { useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { RootState } from 'redux/store';
 import './header.scss';
 
 const headerNav = [
@@ -20,8 +18,7 @@ const headerNav = [
 ];
 
 const Header = () => {
-  const user = useSelector((state: RootState) => state.login.login);
-  console.log(user);
+  const userUid = JSON.parse(localStorage.getItem('userUID'));
   const { pathname } = useLocation();
   const headerRef = useRef<HTMLDivElement>(null);
   const active = headerNav.findIndex((e) => e.path === pathname);
@@ -33,6 +30,8 @@ const Header = () => {
       .then(() => {
         if (window.confirm('로그아웃하시겠습니까?')) {
           alert('로그아웃되었습니다.');
+          window.localStorage.removeItem('userUID');
+          window.localStorage.removeItem('loginCartItems');
           window.location.replace('/');
         }
       })
@@ -69,7 +68,7 @@ const Header = () => {
               <Link to={e.path}>{e.display}</Link>
             </li>
           ))}
-          {user ? (
+          {userUid === 'n0RpbOhJffgXkmQC3342eqMS4Pv1' ? (
             <li className={`${pathname === '/admin' ? 'active' : ''}`}>
               <Link to="/admin">Admin</Link>
             </li>
@@ -79,7 +78,7 @@ const Header = () => {
         </ul>
         <div className="logo">BABAN</div>
         <div className="header__nav-right">
-          {user ? (
+          {userUid !== null ? (
             <div onClick={logout}>Logout</div>
           ) : (
             <Link to="/login">Login</Link>

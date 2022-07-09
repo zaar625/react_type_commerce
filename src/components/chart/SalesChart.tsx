@@ -6,7 +6,6 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const SalesChart = () => {
   const [sales, setSales] = useState<any[]>([]);
-  console.log(sales);
 
   useEffect(() => {
     db.collection('sales')

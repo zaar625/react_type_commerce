@@ -7,7 +7,6 @@ import Button from 'components/button/Button';
 import { Link } from 'react-router-dom';
 
 const HeroSlide = () => {
-  console.log('hero lendering');
   return (
     <div className="hero-slide">
       <Swiper

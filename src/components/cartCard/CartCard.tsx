@@ -56,7 +56,6 @@ const CartCard = (props: PropsType) => {
 
   const removeCartItem = () => {
     alert('해당 아이템을 삭제하시겠습니까?');
-    console.log('removeCartItem');
     if (UserloginState) {
       dispatch(UserRemoveItem(item));
     } else {

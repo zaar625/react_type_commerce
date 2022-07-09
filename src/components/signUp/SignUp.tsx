@@ -58,7 +58,6 @@ const SignUp = () => {
   };
   //동의 함수
   const agreeCheck = (e: HTMLInputElement) => {
-    console.log(e.checked);
     if (e.checked) {
       setAgreeCheckBox(true);
     } else {
@@ -68,17 +67,14 @@ const SignUp = () => {
   // 회원가입 함수
   const signUp = (e: any) => {
     e.preventDefault();
-    console.log(agreeCheckBox);
 
     if (agreeCheckBox) {
       auth
         .createUserWithEmailAndPassword(email, password)
-        .then((result) => {
-          console.log(result);
-          console.log(result.user);
+        .then(() => {
           alert(`님 회원가입이 되었습니다. 로그인해주세요`);
         })
-        .catch((err) => alert('빈 항목이 있습니다. 확인해주세요.'));
+        .catch(() => alert('빈 항목이 있습니다. 확인해주세요.'));
     } else {
       alert('오류');
     }

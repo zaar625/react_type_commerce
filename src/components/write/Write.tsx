@@ -21,13 +21,10 @@ const Write = () => {
   auth.onAuthStateChanged((user) => {
     if (user) {
       postItem.user = user.uid;
-      console.log(user.uid);
     }
   });
 
   const [writeItem, setwriteItem] = useState(postItem); //포스트 작성 내용 상태
-
-  console.log(writeItem);
 
   const onChange = (e: any) => {
     const { value, name } = e.target;
@@ -43,9 +40,6 @@ const Write = () => {
   };
   //업로드 함수
   const upLoad = () => {
-    // const file = image === undefined ? undefined : image[0];
-    // console.log(image);
-
     if (writeItem.title === '' || writeItem.content === '') {
       alert('제목과 내용을 확인 해 주세요.');
     } else if (image !== undefined) {
@@ -64,7 +58,6 @@ const Write = () => {
         // 성공시 동작하는 함수
         () => {
           fileupLoad.snapshot.ref.getDownloadURL().then((url) => {
-            console.log('업로드된 경로는', url);
             const updateItem = {
               ...writeItem,
               image: url,
@@ -85,10 +78,8 @@ const Write = () => {
     } else {
       db.collection('post')
         .add(writeItem)
-        .then((result) => {
+        .then(() => {
           alert('성공하였습니다.');
-          console.log(result); //성공하면 결과값 출력 (result)
-          // window.location.href = "/index.html"
           window.location.replace('/review');
         })
         .catch((error) => {

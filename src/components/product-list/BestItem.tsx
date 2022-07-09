@@ -21,7 +21,6 @@ const BestItem = () => {
   const data: any = [];
 
   useEffect(() => {
-    console.log('best lendering');
     const fetchData = async () => {
       await db
         .collection('products')

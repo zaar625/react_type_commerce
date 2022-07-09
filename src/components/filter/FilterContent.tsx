@@ -8,7 +8,6 @@ interface PropsType {
 }
 
 const FilterContent = ({ data }: PropsType) => {
-  console.log('filter-content lendering');
   return (
     <div className="filter-content ">
       {data.map((item: ProductsType, index: number) => (

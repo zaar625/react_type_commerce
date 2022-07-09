@@ -80,6 +80,10 @@
             @include flex(unset, unset);
             flex-direction: column;
             gap: 1rem;
+            
+            & > a > button {
+                width:  100%;
+            }
         }
 
     }

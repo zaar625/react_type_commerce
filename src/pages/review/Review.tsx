@@ -22,7 +22,6 @@ export interface PostItemsType {
 
 const Review = () => {
   const [postItems, setPostItems] = useState<PostItemsType[]>([]);
-  console.log(postItems);
   const navigate = useNavigate(); //포스트 각각의 아이템
   const user = useSelector((state: RootState) => state.login.login);
 
@@ -46,7 +45,6 @@ const Review = () => {
   }; //포스트 데이터 받아오기
 
   const userCheck = () => {
-    console.log(user);
     if (user) {
       navigate('/write');
     } else {

@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import firebase from 'firebase/app';
 import Button from 'components/button/Button';
 import { login } from 'redux/login';
 import './login.scss';
 import PageHeader from 'components/pageHeader/PageHeader';
-import { auth } from 'firebase/firebaseInit';
+import { auth, db } from 'firebase/firebaseInit';
+import { userAddItem } from 'redux/logincartIems';
 
 const Login = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -29,10 +31,22 @@ const Login = () => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        console.log(auth.currentUser.uid);
-        alert('회원님 반갑습니다.');
+        localStorage.setItem('userUID', JSON.stringify(auth.currentUser.uid));
         dispatch(login(true));
-        window.location.replace('/');
+
+        db.collection('user')
+          .doc(`${auth.currentUser.uid}`)
+          .get()
+          .then((res) => {
+            res.data().cart.forEach((i: any) => {
+              dispatch(userAddItem(i));
+            });
+          })
+          .catch(() => {
+            return;
+          });
+        alert('회원님 반갑습니다.');
+        navigate('/');
       })
       .catch(() => alert('정보가 일치하지 않습니다.'));
   };

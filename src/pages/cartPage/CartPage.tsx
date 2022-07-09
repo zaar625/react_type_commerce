@@ -29,14 +29,12 @@ const CartPage = () => {
   );
 
   const user = useSelector((state: RootState) => state.login.login);
-  console.log(user);
 
   const [loginUserItems, setLoginUserItems] = useState<CartProductType[]>([]); //로그인 유저 카트 아이템들
   const [notUserItems, setNoUserItems] = useState<CartProductType[]>([]); //비유저 카트 아이템
   const [totalProducts, setTotalProducts] = useState(0); //카트상품 총 개수(동일품목시 수량까지 합산)
   const [totalPrice, setTotalPrice] = useState(0); //카트상품 총 금액
 
-  console.log(loginUserItems);
   useEffect(() => {
     setNoUserItems(notUserCartItems);
     setLoginUserItems(UserCartItems);
@@ -80,7 +78,6 @@ const CartPage = () => {
             res.forEach((doc) => {
               const itemStock = doc.data().stock;
               const newPostKey = database.ref().child(`${doc.id}`).key; //item06
-              console.log(newPostKey);
 
               db.collection('products')
                 .doc(newPostKey)
@@ -98,6 +95,7 @@ const CartPage = () => {
         .then(() => {
           console.log('구매내역에 담겼습니다.');
         });
+      alert('구매가 완료되었습니다.');
     } else {
       alert('로그인을 해주세요.');
     }

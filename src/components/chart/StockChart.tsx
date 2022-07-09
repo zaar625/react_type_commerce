@@ -25,7 +25,6 @@ ChartJS.register(
 const StockChart = () => {
   const [productsData, setProductsData] = useState<ProductsType[]>([]);
   const stockNum = productsData.map((i) => i.stock);
-  console.log(productsData);
 
   useEffect(() => {
     const data: any[] = [];

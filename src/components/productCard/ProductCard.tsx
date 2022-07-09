@@ -8,7 +8,6 @@ interface Props {
 }
 
 const ProductCard = (props: Props) => {
-  // console.log('product lendering');
   const item = props.item;
   return (
     <Link to={`/products/${item.name}`}>
