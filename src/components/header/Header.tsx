@@ -17,14 +17,11 @@ const headerNav = [
     display: 'Products',
     path: '/products',
   },
-  {
-    display: 'Admin',
-    path: '/admin',
-  },
 ];
 
 const Header = () => {
   const user = useSelector((state: RootState) => state.login.login);
+  console.log(user);
   const { pathname } = useLocation();
   const headerRef = useRef<HTMLDivElement>(null);
   const active = headerNav.findIndex((e) => e.path === pathname);
@@ -72,6 +69,13 @@ const Header = () => {
               <Link to={e.path}>{e.display}</Link>
             </li>
           ))}
+          {user ? (
+            <li className={`${pathname === '/admin' ? 'active' : ''}`}>
+              <Link to="/admin">Admin</Link>
+            </li>
+          ) : (
+            ''
+          )}
         </ul>
         <div className="logo">BABAN</div>
         <div className="header__nav-right">

@@ -7,6 +7,7 @@ import { RiDeleteBin6Line } from 'react-icons/ri';
 import { useSelector } from 'react-redux';
 import { CartProductType } from 'pages/cartPage/CartPage'; //타입
 import { RootState } from 'redux/store'; //리덕스 타입
+import numberWithCommas from 'util/numberWithCommas';
 import './cartCard.scss';
 
 // 타입
@@ -74,7 +75,9 @@ const CartCard = (props: PropsType) => {
         <div className="cart-card__contents__infobox">
           <div className="cart-card__contents__infobox__info">
             <div>color: {item.color}</div>
-            <div>price: {item.price * item.quantity}</div>
+            <div>
+              price: {numberWithCommas(`${item.price * item.quantity}`)}
+            </div>
             <div className="qunt-box">
               <div className="mb-1">Quntity</div>
               <div className="productDetail__des__quan">

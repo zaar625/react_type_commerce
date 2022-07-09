@@ -6,6 +6,7 @@ import Button from 'components/button/Button';
 import { login } from 'redux/login';
 import './login.scss';
 import PageHeader from 'components/pageHeader/PageHeader';
+import { auth } from 'firebase/firebaseInit';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const Login = () => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
+        console.log(auth.currentUser.uid);
         alert('회원님 반갑습니다.');
         dispatch(login(true));
         window.location.replace('/');

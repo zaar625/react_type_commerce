@@ -6,6 +6,7 @@ import { SwiperSlide, Swiper } from 'swiper/react';
 import Button from 'components/button/Button';
 import PageHeader from 'components/pageHeader/PageHeader';
 import { RootState } from 'redux/store';
+import numberWithCommas from 'util/numberWithCommas';
 
 import './cartPage.scss';
 
@@ -124,7 +125,7 @@ const CartPage = () => {
         <div className="cart-page__purchase">
           <div>
             <p>총 {totalProducts}개의 상품</p>
-            <p>총 {totalPrice} 원</p>
+            <p>총 {numberWithCommas(`${totalPrice}`)} 원</p>
           </div>
           <Button onClick={purchase}>구매하기</Button>
         </div>

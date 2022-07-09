@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ProductsType } from 'components/product-list/NewArrival';
+import numberWithCommas from 'util/numberWithCommas';
 import './productCard.scss';
 
 interface Props {
@@ -22,7 +23,7 @@ const ProductCard = (props: Props) => {
               <div key={i} style={{ backgroundColor: `${e}` }}></div>
             ))}
           </div>
-          <span>{item.price}</span>
+          <span>{numberWithCommas(`${item.price}`)}</span>
         </div>
       </div>
     </Link>
