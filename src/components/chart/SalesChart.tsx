@@ -39,6 +39,20 @@ export const SalesChart = () => {
   const salesPrice = salesItem().map((i) => i.price);
 
   //   -----------------------------chart.js
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top' as const,
+      },
+      title: {
+        display: true,
+        text: 'Product Sales',
+      },
+    },
+  };
+
   const data = {
     labels: labels,
     datasets: [
@@ -65,5 +79,5 @@ export const SalesChart = () => {
       },
     ],
   };
-  return <Doughnut data={data} />;
+  return <Doughnut options={options} data={data} />;
 };

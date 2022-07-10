@@ -1,4 +1,3 @@
-import React from 'react';
 import { useEffect, useState } from 'react';
 import { db } from 'firebase/firebaseInit';
 import { Bar } from 'react-chartjs-2';
@@ -45,7 +44,7 @@ const StockChart = () => {
     labels,
     datasets: [
       {
-        label: 'data',
+        label: 'stock state',
         data: stockNum,
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
@@ -60,7 +59,7 @@ const StockChart = () => {
       },
       title: {
         display: true,
-        text: 'Chart.js Bar Chart',
+        text: 'Product Stock',
       },
     },
   };

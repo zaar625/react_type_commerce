@@ -21,7 +21,7 @@ const Footer = () => {
         </p>
       </div>
       <div className="footer__content">
-        <h3 className="footer__title">Our Address</h3>
+        <h1 className="footer__title">Our Address</h1>
         <ul className="footer__data">
           <li className="footer__information">1234 - 1234</li>
           <li className="footer__information">Seoul - 43210</li>
@@ -29,30 +29,36 @@ const Footer = () => {
         </ul>
       </div>
       <div className="footer__content">
-        <h3 className="footer__title">Contact Us</h3>
+        <h1 className="footer__title">Contact Us</h1>
         <ul className="footer__data">
           <li className="footer__information mb-1">+999 888 777</li>
-          <div className="footer__social">
-            <a href="https://www.facebook.com/" className="footer__social-link">
+          <li className="footer__social">
+            <a
+              href="https://www.facebook.com/"
+              className="footer__social-link "
+            >
+              <p className="a11y-hidden">facebook</p>
               <FaFacebookF />
             </a>
             <a
               href="https://www.instagram.com/"
               className="footer__social-link"
             >
+              <p className="a11y-hidden">insta</p>
               <BsInstagram />
             </a>
             <a href="https://twitter.com/" className="footer__social-link">
+              <p className="a11y-hidden">twitter</p>
               <FaTwitter />
             </a>
-          </div>
+          </li>
         </ul>
       </div>
       <div className="footer__content">
-        <h3 className="footer__title">
+        <h1 className="footer__title">
           We accept all <br />
           credit cards
-        </h3>
+        </h1>
         <div className="footer__cards">
           <img src={card1} alt="" className="footer__card" />
           <img src={card2} alt="" className="footer__card" />

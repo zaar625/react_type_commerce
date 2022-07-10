@@ -17,7 +17,7 @@ const Season = () => {
           from a Lorem Ipsum passage.
         </p>
         <div className="season__productImage">
-          <img src={seasonImg}></img>
+          <img src={seasonImg} alt="seasonImage"></img>
           <p>
             Lorem Ipsum is not simply random text. It has roots in a piece of
             classical Latin literature from 45 BC, making it over 2000 years

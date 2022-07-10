@@ -7,6 +7,10 @@
     gap: 5rem;
     display: flex;
 
+    @include mobile {
+        flex-direction: column;
+    }
+
 
     &__form {
         padding-right: 14rem;      
@@ -25,6 +29,13 @@
         @include flex(unset, unset);
         gap: 1rem;
         flex-direction: column;
+
+        @include tablet {
+            width: 50%;
+        }
+        @include mobile {
+            width: 100%;
+        }
     }
 
 
