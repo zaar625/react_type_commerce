@@ -1,3 +1,4 @@
+import React from 'react';
 import ProductCard from 'components/productCard/ProductCard';
 import { ProductsType } from 'components/product-list/NewArrival';
 
@@ -20,4 +21,4 @@ const FilterContent = ({ data }: PropsType) => {
   );
 };
 
-export default FilterContent;
+export default React.memo(FilterContent);

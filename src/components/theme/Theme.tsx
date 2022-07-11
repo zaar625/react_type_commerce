@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { BiSun, BiMoon } from 'react-icons/bi';
 import { useDispatch } from 'react-redux';
@@ -32,4 +33,4 @@ const Theme = () => {
   );
 };
 
-export default Theme;
+export default React.memo(Theme);

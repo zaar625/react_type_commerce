@@ -1,3 +1,4 @@
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
@@ -31,4 +32,4 @@ const NumberCart = () => {
   );
 };
 
-export default NumberCart;
+export default React.memo(NumberCart);

@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from './components/header/Header';
@@ -6,23 +6,11 @@ import Footer from 'components/footer/Footer';
 import './App.scss';
 import { RootState } from 'redux/store';
 import { Home } from 'pages/Home';
-// import Products from 'pages/Products';
-// import Login from 'components/login/Login';
-// import SignUp from 'components/signUp/SignUp';
-// import ProductDetail from 'pages/productView/ProductDetail';
 import { auth } from 'firebase/firebaseInit';
 import { useEffect } from 'react';
 import { login } from 'redux/login';
-// import Write from 'components/write/Write';
-// import Review from 'pages/review/Review';
-// import CartPage from 'pages/cartPage/CartPage';
-// import Admin from 'pages/admin/Admin';
-// import PostCorrect from 'components/postCorrect/PostCorrect';
+import Loading from 'components/loading/Loading';
 
-// lazy
-// const Home = lazy(() =>
-//   import('./pages/Home').then(({ Home }) => ({ default: Home })),
-// );
 const Products = lazy(() => import('./pages/Products'));
 const Login = lazy(() => import('./components/login/Login'));
 const SignUp = lazy(() => import('./components/signUp/SignUp'));
@@ -49,7 +37,7 @@ function App() {
     <BrowserRouter>
       <div className={`layout ${themeMode}`}>
         <Header />
-        <Suspense fallback={<div>로딩중...</div>}>
+        <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/products/" element={<Products />}></Route>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { db, database } from 'firebase/firebaseInit';
 import { useSelector } from 'react-redux';
 import CartCard from 'components/cartCard/CartCard';
@@ -21,6 +21,7 @@ export interface CartProductType {
 }
 
 const CartPage = () => {
+  console.log('cartPage lendering');
   const notUserCartItems = useSelector(
     (state: RootState) => state.cartItem.items,
   );
@@ -63,7 +64,7 @@ const CartPage = () => {
   ]);
 
   //구매하기 함수
-  const purchase = () => {
+  const purchase = useCallback(() => {
     if (user && window.confirm('해당 상품을 구매하시겠습니까?')) {
       const purchaseItem = loginUserItems;
       const salesItem = { ...purchaseItem };
@@ -99,7 +100,7 @@ const CartPage = () => {
     } else {
       alert('로그인을 해주세요.');
     }
-  };
+  }, []);
   return (
     <>
       <PageHeader />

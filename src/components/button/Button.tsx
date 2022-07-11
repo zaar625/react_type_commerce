@@ -1,3 +1,4 @@
+import React from 'react';
 import './button.scss';
 
 type Props = {
@@ -16,4 +17,4 @@ const Button = (props: Props) => {
   );
 };
 
-export default Button;
+export default React.memo(Button);

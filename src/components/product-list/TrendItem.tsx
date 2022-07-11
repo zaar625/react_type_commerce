@@ -15,7 +15,6 @@ export interface ProductsType {
   stock: number;
 }
 const TrendItem = () => {
-  console.log('trend lendering');
   const [products, setProducts] = useState<ProductsType[]>([]);
   const data: any = [];
 

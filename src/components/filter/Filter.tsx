@@ -40,9 +40,8 @@ const Filter = () => {
   const [filter, setFilter] = useState(initFilter); //필터적용된 상품목록집합
   const [searchText, setSearchText] = useState(''); //검색상태관리
 
+  const Alldata: any = [];
   useEffect(() => {
-    const Alldata: any = [];
-
     const fetchAllData = async () => {
       await db
         .collection('products')
@@ -115,7 +114,9 @@ const Filter = () => {
   };
 
   useEffect(() => {
-    if (searchText === '') return;
+    if (searchText === '') {
+      setFilterProducts(Alldata);
+    }
     setFilterProducts(() =>
       products.filter((item) =>
         item.name.toLowerCase().match(searchText.toLowerCase()),

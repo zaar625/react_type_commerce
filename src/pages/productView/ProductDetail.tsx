@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { db } from 'firebase/firebaseInit';
 import { ProductsType } from 'components/product-list/NewArrival';
@@ -45,7 +45,7 @@ const ProductDetail = () => {
   }, [UserloginState]);
 
   // 카트에 추가하기
-  const addToCart = () => {
+  const addToCart = useCallback(() => {
     if (color !== '') {
       const newItem = {
         name: productDetail[0].name,
@@ -65,7 +65,7 @@ const ProductDetail = () => {
     } else {
       alert('색상을 선택해 주세요');
     }
-  };
+  }, [color]);
   //수량함수
   const updateQuantity = (type: string) => {
     if (type === 'plus') {

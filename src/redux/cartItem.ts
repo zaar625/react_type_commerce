@@ -47,7 +47,7 @@ const cartItemsSlice = createSlice({
     },
     updateItem: (state, action)=>{
       const newItem = action.payload;
-      console.log(newItem);
+
       const item = state.items.filter((e:Item) => e.name === newItem.name && e.color === newItem.color );//동일아이템
       
       if(item.length > 0) {
