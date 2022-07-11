@@ -3,10 +3,11 @@ import { useState } from 'react';
 import { auth } from 'firebase/firebaseInit';
 import Button from 'components/button/Button';
 import { BiErrorCircle } from 'react-icons/bi';
-import './signup.scss';
 import { UseInfo, UseInfoSelect } from 'components/personalInfo/UseInfo';
 import CheckBox from 'components/checkbox/CheckBox';
 import PageHeader from 'components/pageHeader/PageHeader';
+
+import './signup.scss';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');

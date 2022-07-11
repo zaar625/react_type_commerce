@@ -4,10 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import firebase from 'firebase/app';
 import Button from 'components/button/Button';
 import { login } from 'redux/login';
-import './login.scss';
 import PageHeader from 'components/pageHeader/PageHeader';
-import { auth, db } from 'firebase/firebaseInit';
+import { auth, db, firebaseInstance } from 'firebase/firebaseInit';
 import { userAddItem } from 'redux/logincartIems';
+import googleBtn from '../../assets/images/google_sign.webp';
+import './login.scss';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -51,6 +52,21 @@ const Login = () => {
       .catch(() => alert('정보가 일치하지 않습니다.'));
   };
 
+  function handleGoogleLogin() {
+    const provider = new firebaseInstance.auth.GoogleAuthProvider(); // provider를 구글로 설정
+    auth
+      .signInWithPopup(provider) // popup을 이용한 signup
+      .then((data) => {
+        localStorage.setItem('userUID', JSON.stringify(data.user.uid));
+        alert('Google 로그인이 되었습니다.');
+        dispatch(login(true));
+        navigate('/');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   return (
     <>
       <PageHeader />
@@ -91,9 +107,14 @@ const Login = () => {
             아직 BABAN의 회원이 아니시라면 이메일로 간편하게 가입하실 수
             있습니다.
           </p>
-          <Link to="/signup">
-            <Button className="">Sign in</Button>
-          </Link>
+          <div className="login__signBtns">
+            <Link to="/signup">
+              <Button className="">Sign in</Button>
+            </Link>
+            <div onClick={handleGoogleLogin}>
+              <img src={googleBtn} alt="google Sign" />
+            </div>
+          </div>
         </div>
       </div>
     </>
