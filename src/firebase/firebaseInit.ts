@@ -5,7 +5,7 @@ import 'firebase/database';
 import 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBAMClIedp7o6x6U0dNAYIMNwbvgXr2CNc',
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: 'react-type-ecommerce.firebaseapp.com',
   projectId: 'react-type-ecommerce',
   storageBucket: 'react-type-ecommerce.appspot.com',

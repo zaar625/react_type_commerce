@@ -7,14 +7,14 @@
     &__charts {
         display: flex;
         gap: 4rem;
+        align-items: center;
 
         @include mobile {
             flex-direction: column;
         }
         
         &__stock {
-            width: 50%;
-
+            width: 70%;
             @include mobile {
                 width: 100%;
             }

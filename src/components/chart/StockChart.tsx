@@ -53,6 +53,7 @@ const StockChart = () => {
 
   const options = {
     responsive: true,
+    indexAxis: 'y' as const,
     plugins: {
       legend: {
         position: 'top' as const,

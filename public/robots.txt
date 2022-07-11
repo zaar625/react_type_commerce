@@ -2,4 +2,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
-Sitemap: https://lively-douhua-a65ad4.netlify.app/sitemap.xml
+Sitemap: https://lively-lee.netlify.app/sitemap.xml
