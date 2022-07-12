@@ -33,5 +33,14 @@
                 cursor: pointer;
             }
         }
+        .qunt-box__quan {
+            display: flex;
+            justify-content: space-between;
+
+            & svg {
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
     }
 }

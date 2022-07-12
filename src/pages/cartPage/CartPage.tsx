@@ -21,7 +21,6 @@ export interface CartProductType {
 }
 
 const CartPage = () => {
-  console.log('cartPage lendering');
   const notUserCartItems = useSelector(
     (state: RootState) => state.cartItem.items,
   );
@@ -62,13 +61,13 @@ const CartPage = () => {
     totalPrice,
     UserCartItems,
   ]);
-
+  console.log(loginUserItems);
   //구매하기 함수
-  const purchase = useCallback(() => {
+  const purchase = () => {
     if (user && window.confirm('해당 상품을 구매하시겠습니까?')) {
       const purchaseItem = loginUserItems;
       const salesItem = { ...purchaseItem };
-
+      console.log(purchaseItem, salesItem);
       // -------------------------firebase stock데이터 변경 로직
       purchaseItem.forEach((i) => {
         const newStock = i.quantity;
@@ -91,16 +90,17 @@ const CartPage = () => {
             });
           });
       });
+
       db.collection('sales')
         .add(salesItem)
         .then(() => {
-          console.log('구매내역에 담겼습니다.');
+          console.log('sales 데이터에 담겼습니다.');
         });
       alert('구매가 완료되었습니다.');
     } else {
       alert('로그인을 해주세요.');
     }
-  }, []);
+  };
   return (
     <>
       <PageHeader />

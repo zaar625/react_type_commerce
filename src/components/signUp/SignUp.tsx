@@ -8,12 +8,14 @@ import CheckBox from 'components/checkbox/CheckBox';
 import PageHeader from 'components/pageHeader/PageHeader';
 
 import './signup.scss';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordDBCheck, setPasswordDBCheck] = useState('');
   const [agreeCheckBox, setAgreeCheckBox] = useState(false);
+  const navigate = useNavigate();
 
   // email
   const emailvalue = (e: any) => {
@@ -73,7 +75,8 @@ const SignUp = () => {
       auth
         .createUserWithEmailAndPassword(email, password)
         .then(() => {
-          alert(`님 회원가입이 되었습니다. 로그인해주세요`);
+          alert(`회원가입이 되었습니다. 로그인해주세요`);
+          navigate('/login');
         })
         .catch(() => alert('빈 항목이 있습니다. 확인해주세요.'));
     } else {

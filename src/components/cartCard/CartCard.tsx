@@ -79,7 +79,7 @@ const CartCard = (props: PropsType) => {
             </div>
             <div className="qunt-box">
               <div className="mb-1">Quntity</div>
-              <div className="productDetail__des__quan">
+              <div className="qunt-box__quan">
                 <AiOutlineMinusSquare onClick={() => updateQuantity('minus')} />
                 <div>{quantity}</div>
                 <AiOutlinePlusSquare onClick={() => updateQuantity('plus')} />

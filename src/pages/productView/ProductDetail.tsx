@@ -148,7 +148,6 @@ const ProductDetail = () => {
                   </div>
                 ))}
               </div>
-              <div className="productDetail__des__quan"></div>
             </div>
             <div className="productDetail__des__quan">
               <AiOutlineMinusSquare onClick={() => updateQuantity('minus')} />
