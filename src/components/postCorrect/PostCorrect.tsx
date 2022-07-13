@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { storage } from 'firebase/firebaseInit';
 import Button from 'components/button/Button';
+import '../write/write.scss';
+import PageHeader from 'components/pageHeader/PageHeader';
 
 const PostCorrect = () => {
   const params = useParams();
@@ -87,43 +89,46 @@ const PostCorrect = () => {
   };
 
   return (
-    <div className="write container">
-      <div className="write__form">
-        <h2>수정하기</h2>
-        <form>
-          <input
-            type="txt"
-            placeholder="제목"
-            name="title"
-            onChange={onChange}
-            value={reWrite.title}
-          ></input>
-          <label className="a11y-hidden ">tilte</label>
-        </form>
-        <form>
-          <textarea
-            placeholder="내용"
-            name="content"
-            id="password"
-            onChange={onChange}
-            value={reWrite.content}
-          ></textarea>
-          <label className="a11y-hidden ">content</label>
-        </form>
-        <form>
-          <input
-            name="image"
-            type="file"
-            placeholder="이미지 파일"
-            onChange={fileOnChange}
-          ></input>
-          <label className="a11y-hidden ">image</label>
-        </form>
-        <Button className="" onClick={upLoad}>
-          Up Load
-        </Button>
+    <>
+      <PageHeader />
+      <div className="write container">
+        <div className="write__form">
+          <h2>수정하기</h2>
+          <form>
+            <input
+              type="txt"
+              placeholder="제목"
+              name="title"
+              onChange={onChange}
+              value={reWrite.title}
+            ></input>
+            <label className="a11y-hidden ">tilte</label>
+          </form>
+          <form>
+            <textarea
+              placeholder="내용"
+              name="content"
+              id="password"
+              onChange={onChange}
+              value={reWrite.content}
+            ></textarea>
+            <label className="a11y-hidden ">content</label>
+          </form>
+          <form>
+            <input
+              name="image"
+              type="file"
+              placeholder="이미지 파일"
+              onChange={fileOnChange}
+            ></input>
+            <label className="a11y-hidden ">image</label>
+          </form>
+          <Button className="" onClick={upLoad}>
+            Up Load
+          </Button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

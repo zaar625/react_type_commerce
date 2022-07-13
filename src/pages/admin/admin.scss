@@ -2,6 +2,17 @@
 
 .admin{
     padding: 0 2rem;
+    font-weight: bold;
+
+    &__title {
+        display: flex;
+        gap:1rem;
+        align-items: center;
+
+        & > svg {
+            color: var(--main-color);
+        }
+    }
 
 
     &__charts {
