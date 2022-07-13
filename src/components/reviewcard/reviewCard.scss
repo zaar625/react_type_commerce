@@ -27,6 +27,10 @@
             @include flex(unset, unset);
             gap: 1rem;
 
+            & >p {
+                width: 50%;
+            }
+
             .postImage {
                 position:relative;
                 background-position: top;
