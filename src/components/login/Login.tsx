@@ -13,8 +13,8 @@ import './login.scss';
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState<string>('zaar625@naver.com');
+  const [password, setPassword] = useState<string>('123456');
 
   // input.value 함수
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,7 +46,7 @@ const Login = () => {
           .catch(() => {
             return;
           });
-        alert('회원님 반갑습니다.');
+        alert('안녕하세요! 반갑습니다.');
         navigate('/');
       })
       .catch(() => alert('정보가 일치하지 않습니다.'));
