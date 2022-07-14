@@ -29,7 +29,7 @@
 
 <div><img src="https://user-images.githubusercontent.com/69461545/178392161-4dac371e-edc7-4fbf-a4bc-b21e76ee03fb.png" width="60%"></div>
 
-<a href="https://www.notion.so/BABAN-026bc0393a65404785f6c958911efa35">페이지별 구현 계획 및 회고 보러가기</a>
+<a href="https://wary-spy-d47.notion.site/BABAN-026bc0393a65404785f6c958911efa35">페이지별 구현 계획 및 회고 보러가기</a>
    
 ---   
    
@@ -48,7 +48,7 @@
 3. lazy()를 이용하여 동적으로 import
    
 <div><img src="https://user-images.githubusercontent.com/69461545/178393203-6be771dc-e37a-4f7d-a68d-396927ce8030.png" width="30%"></div>
-<a href="https://www.notion.so/BABAN-Google-Light-House-ae2775969ae945e286843922c10572cc">페이지별 향상기록 보러가기</a>
+<a href="https://wary-spy-d47.notion.site/BABAN-Google-Light-House-ae2775969ae945e286843922c10572cc">페이지별 향상기록 보러가기</a>
    
    <h4>디자인</h4>
    
