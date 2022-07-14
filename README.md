@@ -29,7 +29,7 @@
 
 <div><img src="https://user-images.githubusercontent.com/69461545/178392161-4dac371e-edc7-4fbf-a4bc-b21e76ee03fb.png" width="60%"></div>
 
-<a href="https://www.notion.so/BABAN-026bc0393a65404785f6c958911efa35">페이지별 구현 계획 보러가기</a>
+<a href="https://www.notion.so/BABAN-026bc0393a65404785f6c958911efa35">페이지별 구현 계획 및 회고 보러가기</a>
    
 ---   
    
