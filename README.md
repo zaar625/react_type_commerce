@@ -1,11 +1,20 @@
 <div align='center'><img src="https://user-images.githubusercontent.com/69461545/178273803-18535968-a8b7-4558-b872-e55d6f0f7881.png" width="10%"></div>
 <h2 align='center'><a href="https://lively-lee.netlify.app/">BABAN</a><h2>
 <h4>프로젝트 소개</h4>
-<p>React + Typescript + fireBase를 활용한 E-commerce shop site 제작</p> 
+<p>React + Typescript + fireBase를 활용한 E-commerce shop site 제작</p>   
+
+
 <h4>기술 스택</h4> 
     
 <div><img src="https://img.shields.io/badge/React-lightblue?style=flat&logo=React&logoColor=white">   <img src="https://img.shields.io/badge/typescript-3178C6?style=flat&logo=Typescript&logoColor=white">   <img src="https://img.shields.io/badge/sass-pink?style=flat&logo=Sass&logoColor=white"/>   <img src="https://img.shields.io/badge/firebase-white?style=flat&logo=firebase&logoColor=yellow"/></div>
 <div><img src="https://user-images.githubusercontent.com/69461545/178280583-d8c0ef6e-a708-4b85-bbbe-0f3f69109c0c.png" width="70%"></div>
+
+|로그인 Test Id|Password|
+|------|---|
+|zaar625@naver.com|123456|
+|test1@naver.com|123456|
+
+
 <h4>구현 기능</h4>   
 
 1. client는 firebase에 저장된 데이터와 통신
